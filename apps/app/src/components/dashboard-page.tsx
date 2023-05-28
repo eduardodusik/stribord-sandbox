@@ -1,6 +1,8 @@
-import { IonButton, IonCol, IonContent, IonGrid, IonRow } from "@ionic/react";
-import React, { useState } from "react";
+import { IonButton, IonCol, IonContent, IonGrid, IonLoading, IonRow } from "@ionic/react";
+import React, { Suspense, useState } from "react";
 import { Bar, BarChart, Legend, XAxis } from "recharts";
+import { DashboardCardSlot } from '../extension-points/dashboard-card-extension';
+import { useSlot } from "@stribord/react-client";
 
 import { salesMtd, salesYtd } from "../mock-data/sales";
 import { FilterBy } from "../types/filters";
@@ -9,6 +11,7 @@ import { DashboardCard } from "./dashboard-card";
 
 export const DashboardPage = () => {
   const [filterBy, setFilterBy] = useState<FilterBy>(FilterBy.YTD);
+  const DashboardCardSlot = useSlot<DashboardCardSlot>('dashboard-card', true);
 
   return (
     <IonContent className="ion-padding">
@@ -47,6 +50,10 @@ export const DashboardPage = () => {
               </BarChart>
             </DashboardCard>
           </IonCol>
+          
+          <Suspense fallback={<IonLoading />}>
+            <DashboardCardSlot />
+          </Suspense>
         </IonRow>
       </IonGrid>
     </IonContent>

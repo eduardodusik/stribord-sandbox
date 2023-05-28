@@ -281,7 +281,7 @@ Adicione as linhas abaixo no componente `DashboardPage`:
 
 import { useSlot } from "@stribord/react-client";
 import { DashboardCardSlot } from '../extension-points/dashboard-card-extension';
-
+// @TODO: Deixar o import do suspense e do IonLoading -->
 // ...
 export const DashboardPage = () => {
   // ...

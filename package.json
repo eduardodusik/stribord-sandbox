@@ -10,5 +10,8 @@
   },
   "devDependencies": {
     "typescript": "^4.7.4"
+  },
+  "resolutions": {
+    "@stribord-examples/app-stribord-typings": "portal:apps/app/.stribord"
   }
 }

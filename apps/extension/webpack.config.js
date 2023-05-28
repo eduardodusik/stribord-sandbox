@@ -109,7 +109,7 @@ module.exports = {
       exclude: [/node_modules/, /bootstrap\.tsx$/],
     }),
     new ModuleFederationPlugin({
-      name: "StribordExamplesExtension",
+      name: "StribordExampleExtension",
       filename: "./remoteEntry.js",
       exposes: {},
       remotes: {},
